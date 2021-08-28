@@ -1,13 +1,29 @@
+import {useEffect, useState} from 'react';
 import DisplayCardButton from './components/DisplayCardButton';
+
 
 import './App.css';
 
 
-function App() {
+const App = ({
+  restaurants, 
+  fetchRestaurantsData
+}) => {
+
+  useEffect(() => {
+    fetchRestaurantsData();
+  }, []);
+
+  console.log(restaurants);
+
   return (
     <div className="App">
-      <DisplayCardButton restaurantName="Dumbo" />
-      <DisplayCardButton restaurantName="Bouillon47" />
+      {restaurants.length > 0 ? restaurants.map((restaurant) => (
+        <DisplayCardButton
+          key={restaurant._id}
+          restaurant={restaurant}
+        />
+      )) : null}
     </div>
   );
 }
