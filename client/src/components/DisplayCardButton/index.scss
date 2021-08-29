@@ -27,6 +27,57 @@
 }
 
 .card.show {
-  top: 33%;
+  top: 15%;
   opacity: 1;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition-duration: 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transition-duration: 1s;
+}
+
+.slide_position {
+  position: absolute;
+  display: flex;
+  top: 63%;
+  left: 35%;
+  color: white;
+  transition-duration: 1s ease;
+}
+.slide_position-inactive {
+  opacity: 0.6;
+  margin-left: 16px;
+}
+
+.slide_position-active {
+  opacity: 1;
+  margin-left: 16px;
+  transition-duration: 1s;
+}
+
+.card_img {
+  width: 400px;
+  height: 400px;
+}
+
+.spec_list {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
