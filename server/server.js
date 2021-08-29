@@ -10,6 +10,8 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 const restaurantRoutes = require("./routes/restaurant.routes");
+const authRoutes = require("./routes/auth.routes");
+// const privateRoutes = require("./routes/private.routes");
 
 app.use(cors());
 app.use(express.json());
@@ -26,6 +28,8 @@ app.use(cookieParser());
 
 //routes
 app.use("/api/restaurant", restaurantRoutes);
+app.use("/api/auth", authRoutes);
+// app.use("/api/private", privateRoutes);
 
 // server
 const server = app.listen(port, () => {

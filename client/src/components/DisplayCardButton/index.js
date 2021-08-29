@@ -28,7 +28,6 @@ const DisplayCardButton = ({restaurant}) => {
     return null;
   }
 
-
   return (
     <>
       <button 
