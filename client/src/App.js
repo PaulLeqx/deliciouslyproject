@@ -3,6 +3,8 @@ import DisplayCardButton from './components/DisplayCardButton';
 
 
 import './App.css';
+import RegisterForm from './containers/RegisterForm';
+import LoginForm from './containers/LoginForm';
 
 
 const App = ({
@@ -24,6 +26,8 @@ const App = ({
           restaurant={restaurant}
         />
       )) : null}
+      <RegisterForm />
+      <LoginForm />
     </div>
   );
 }
