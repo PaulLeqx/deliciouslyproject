@@ -1,0 +1,32 @@
+.overlay {
+  background-color: rgba(0, 0, 0, 0.55);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  display: none;
+  z-index: 5;
+}
+
+.overlay.show {
+  display: block;
+}
+
+.card {
+  position: fixed;
+  background-color: white;
+  top: -33%;
+  width: 500px;
+  box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.15);
+  left: 40%;
+  padding: 16px;
+  transition: all 1.5s ease-out;
+  z-index: 10;
+  opacity: 0;
+}
+
+.card.show {
+  top: 33%;
+  opacity: 1;
+}
