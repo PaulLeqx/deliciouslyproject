@@ -24,11 +24,31 @@
   transition: all 1.5s ease-out;
   z-index: 10;
   opacity: 0;
+  
+  &_restaurant {
+    &-name {
+      margin-top: 16px;
+    }
+    &-spec {
+      margin-top: 0;
+      font-weight: 100;
+    }
+  }
+}
+
+.button_close {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  border: none;
+  background-color: white;
+  font-size: 24px;
 }
 
 .card.show {
   top: 15%;
   opacity: 1;
+  z-index: 20;
 }
 
 .carousel {
@@ -53,20 +73,21 @@
 .slide_position {
   position: absolute;
   display: flex;
-  top: 63%;
+  top: 57%;
   left: 35%;
   color: white;
   transition-duration: 1s ease;
-}
-.slide_position-inactive {
-  opacity: 0.6;
-  margin-left: 16px;
-}
 
-.slide_position-active {
-  opacity: 1;
-  margin-left: 16px;
-  transition-duration: 1s;
+  &-inactive {
+    opacity: 0.6;
+    margin-left: 16px;
+  }
+
+  &-active {
+    opacity: 1;
+    margin-left: 16px;
+    transition-duration: 1s;
+  }
 }
 
 .card_img {
@@ -80,4 +101,28 @@
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.spec_list-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__imgcont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FF224D;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+  }
+}
+
+.spec_list-item img{
+  width: 48px;
+  height: auto;
+  filter: brightness(0) invert(1);
 }

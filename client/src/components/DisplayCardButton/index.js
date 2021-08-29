@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react';
 
+import alarm from '../../assets/images/alarm-clock.png';
+import hamburger from '../../assets/images/hamburger.png';
+import jambon from '../../assets/images/jambon.png';
+import tirelire from '../../assets/images/tirelire.png';
+
 import './index.scss';
 
 const DisplayCardButton = ({restaurant}) => {
@@ -43,16 +48,15 @@ const DisplayCardButton = ({restaurant}) => {
         <div className="carousel">
           {restaurant.pics.map((pic, index) => {
             return (
-              <>
+              <div key={index}>
                 <div
                   className={index === current ? 'slide active' : 'slide'}
-                  key={index}
                 >
                   {index === current && (
-                    <img className="card_img" src={pic} alt="" />
+                    <img className="card_img" src={pic} alt=""/>
                   )}
                 </div>
-              </>
+              </div>
             );
           })}
         </div>
@@ -68,16 +72,36 @@ const DisplayCardButton = ({restaurant}) => {
             );
           })}
         </div>
-        <div>
-          <h2>{restaurant.name}</h2>
-          <h3>{restaurant.spec}</h3>
+        <div className="card_restaurant">
+          <h2 className="card_restaurant-name">{restaurant.name}</h2>
+          <p className="card_restaurant-spec">{restaurant.spec}</p>
           <p>{restaurant.address}</p>
           <div>
             <ul className="spec_list">
-              <li><img src="" alt="" />{restaurant.tags[0]}</li>
-              <li><img src="" alt="" />{restaurant.tags[1]}</li>
-              <li><img src="" alt="" />{restaurant.tags[2]}</li>
-              <li><img src="" alt="" />{restaurant.tags[3]}</li>
+              <li className="spec_list-item">
+                <div className="spec_list-item__imgcont">
+                  <img src={alarm} alt="" />
+                </div>
+                  {restaurant.tags[0]}
+              </li>
+              <li className="spec_list-item">
+                <div className="spec_list-item__imgcont">
+                  <img src={hamburger} alt="" />
+                </div>
+                {restaurant.tags[1]}
+              </li>
+              <li className="spec_list-item">
+                <div className="spec_list-item__imgcont">
+                  <img src={jambon} alt="" />
+                </div>
+                {restaurant.tags[2]}
+              </li>
+              <li className="spec_list-item">
+                <div className="spec_list-item__imgcont">
+                  <img src={tirelire} alt="" />
+                </div>
+                {restaurant.tags[3]}
+              </li>
             </ul>
           </div>
         </div>
