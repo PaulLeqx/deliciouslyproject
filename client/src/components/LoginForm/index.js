@@ -1,6 +1,12 @@
+import { redirect } from '../../actions/user';
 import './index.scss';
 
-const LoginForm = ({loginEmail, loginPassword, changeFieldValue, handleLogin}) => {
+const LoginForm = ({
+  loginEmail, 
+  loginPassword, 
+  changeFieldValue, 
+  handleLogin, 
+}) => {
   
   const handleSubmit = (e) => {
     e.preventDefault();

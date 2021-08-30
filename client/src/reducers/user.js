@@ -1,11 +1,12 @@
-import { CHANGE_FIELD_VALUE, REGISTER_FORM_SUBMIT } from "../actions/user";
+import { CHANGE_FIELD_VALUE, REGISTER_FORM_SUBMIT, LOGIN, LOGOUT } from "../actions/user";
 
 export const initialState = {
   username: "",
   email: "",
   password: "",
   loginEmail: "",
-  loginPassword: ""
+  loginPassword: "",
+  logged: false
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -21,6 +22,18 @@ const reducer = (state = initialState, action = {}) => {
         username: "",
         email: "",
         password: ""
+      }
+    case LOGIN:
+      return {
+        ...state,
+        logged: true,
+        loginEmail: "",
+        loginPassword: ""
+      }
+    case LOGOUT:
+      return {
+        ...state,
+        logged: false
       }
     default: {
       return state

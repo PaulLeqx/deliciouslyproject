@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
   handleLogin: () => {
     dispatch(loginFormSubmit());
-  }
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

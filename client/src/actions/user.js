@@ -14,3 +14,13 @@ export const LOGIN_FORM_SUBMIT = 'LOGIN_FORM_SUBMIT';
 export const loginFormSubmit = () => ({
   type: LOGIN_FORM_SUBMIT
 });
+
+export const LOGOUT = "LOGOUT";
+export const logOut = () => ({
+  type: LOGOUT
+});
+
+export const LOGIN = "LOGIN";
+export const logIn = () => ({
+  type: LOGIN
+});

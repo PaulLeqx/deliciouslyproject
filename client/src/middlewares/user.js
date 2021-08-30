@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LOGIN_FORM_SUBMIT, REGISTER_FORM_SUBMIT } from '../actions/user';
+import { LOGIN_FORM_SUBMIT, REGISTER_FORM_SUBMIT, logIn } from '../actions/user';
 
 const baseURL = "http://localhost:5000";
 
@@ -32,6 +32,7 @@ const user = (store) => (next) => (action) => {
         .then((response) => {
           if(response.data.token) {
             localStorage.setItem("authToken", response.data.token);
+            store.dispatch(logIn());
           }
         })
         .catch((error) => {
