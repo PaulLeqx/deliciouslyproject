@@ -37,7 +37,6 @@ module.exports.login = async (req, res, next) => {
     sendToken(user, 200, res);
   } catch (err) {
     res.status(500).json({success: false, error:"Missing Credentials"});
-    console.log(err)
   }
 };
 

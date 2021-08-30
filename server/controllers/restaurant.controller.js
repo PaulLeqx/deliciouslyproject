@@ -4,6 +4,7 @@ module.exports.createRestaurant = async (req, res, next) => {
   const {name, spec, address, long, lat, tags, pics} = req.body;
 
   try {
+    console.log(req.body);
     const restaurant = await RestaurantModel.create({name, spec, address, long, lat, tags, pics});
 
     res.status(201).json({
@@ -11,7 +12,7 @@ module.exports.createRestaurant = async (req, res, next) => {
       restaurant
     })
   } catch(err) {
-    console.log(err);
+    return res.status(401).json({success: false, error: 'missing'});
   }
 };
 
