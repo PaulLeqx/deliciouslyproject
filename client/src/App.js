@@ -6,7 +6,7 @@ import DisplayCardButton from './components/DisplayCardButton';
 import './App.css';
 import RegisterForm from './containers/RegisterForm';
 import LoginForm from './containers/LoginForm';
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./containers/Dashboard";
 
 
 const App = ({
@@ -52,8 +52,8 @@ const App = ({
           <Route exact path="/dashboard">
             {logged ?
               <div>
-                <Dashboard/>
                 <Link to="/" onClick={handleLogOut}>Logout</Link>
+                <Dashboard/>
               </div>
               :
               <Redirect to="/"/>
