@@ -15,3 +15,8 @@ export const changeFieldValueRestaurantCreate = (value, name) => ({
   value,
   name
 });
+
+export const CREATE_RESTAURANT_SUBMIT = "CREATE_RESTAURANT_SUBMIT";
+export const createRestaurantSubmit = () => ({
+  type: CREATE_RESTAURANT_SUBMIT
+});

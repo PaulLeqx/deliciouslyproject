@@ -1,4 +1,3 @@
-import { redirect } from '../../actions/user';
 import './index.scss';
 
 const LoginForm = ({

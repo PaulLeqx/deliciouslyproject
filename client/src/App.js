@@ -14,7 +14,9 @@ const App = ({
   fetchRestaurantsData,
   logged,
   logOut,
-  logIn
+  logIn,
+  setRedirect,
+  redirect
 }) => {
 
   useEffect(() => {
@@ -22,7 +24,12 @@ const App = ({
     if(localStorage.getItem("authToken")) {
       logIn();
     }
-  }, []);
+    console.log("test");
+  }, [fetchRestaurantsData]);
+
+  useEffect(() => {
+    setRedirect(false);
+  }, [redirect]);
 
   const handleLogOut = () => {
     localStorage.removeItem("authToken");
@@ -50,7 +57,7 @@ const App = ({
             }
           </Route>
           <Route exact path="/dashboard">
-            {logged ?
+            {logged && !redirect ?
               <div>
                 <Link to="/" onClick={handleLogOut}>Logout</Link>
                 <Dashboard/>

@@ -24,3 +24,9 @@ export const LOGIN = "LOGIN";
 export const logIn = () => ({
   type: LOGIN
 });
+
+export const SET_REDIRECT = "SET_REDIRECT";
+export const setRedirect = (bool) => ({
+  type: SET_REDIRECT,
+  bool
+})

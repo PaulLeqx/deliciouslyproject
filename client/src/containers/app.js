@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import App from '../App';
 import { fetchRestaurantsData } from '../actions/restaurant';
-import { logIn, logOut } from '../actions/user';
+import { logIn, logOut, setRedirect } from '../actions/user';
 
 const mapStateToProps = (state) => ({
   restaurants: state.restaurants.restaurants,
-  logged: state.user.logged
+  logged: state.user.logged,
+  redirect: state.user.redirect
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -17,6 +18,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   logIn: () => {
     dispatch(logIn());
+  },
+  setRedirect: (bool) => {
+    dispatch(setRedirect(bool));
   }
 });
 

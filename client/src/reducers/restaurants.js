@@ -1,4 +1,4 @@
-import { CHANGE_FIELD_VALUE_RESTAURANT_CREATE, SAVE_RESTAURANTS } from "../actions/restaurant";
+import { CHANGE_FIELD_VALUE_RESTAURANT_CREATE, CREATE_RESTAURANT_SUBMIT, SAVE_RESTAURANTS } from "../actions/restaurant";
 
 export const initialState = {
   restaurants: [],
@@ -27,6 +27,22 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.name]: action.value
+      }
+    case CREATE_RESTAURANT_SUBMIT : 
+      return {
+        ...state,
+        name: "",
+        spec: "",
+        address: "",
+        lat: "",
+        long: "",
+        tag1: "",
+        tag2: "",
+        tag3: "",
+        tag4: "",
+        pic1: "",
+        pic2: "",
+        pic3: ""
       }
     default: {
       return state

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Dashboard from '../components/Dashboard';
-import { changeFieldValueRestaurantCreate } from '../actions/restaurant';
+import { changeFieldValueRestaurantCreate, createRestaurantSubmit } from '../actions/restaurant';
 
 const mapStateToProps = (state) => ({
   name: state.restaurants.name,
@@ -14,12 +14,16 @@ const mapStateToProps = (state) => ({
   tag4: state.restaurants.tag4,
   pic1: state.restaurants.pic1,
   pic2: state.restaurants.pic2,
-  pic3: state.restaurants.pic3
+  pic3: state.restaurants.pic3,
+  redirect: state.user.redirect
 });
 
 const mapDispatchToProps = (dispatch) => ({
   changeFieldValue: (value, name) => {
     dispatch(changeFieldValueRestaurantCreate(value, name))
+  },
+  createRestaurant: () => {
+    dispatch(createRestaurantSubmit());
   }
 });
 
