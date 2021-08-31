@@ -48,7 +48,7 @@ module.exports.updateRestaurant = async (req, res, next) => {
       });
 
     await restaurant.save();
-
+    
     res.status(200).json({
       success: true,
       restaurant

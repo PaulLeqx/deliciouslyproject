@@ -1,4 +1,4 @@
-import { CHANGE_FIELD_VALUE_RESTAURANT_UPDATE, SAVE_RESTAURANT_DATA } from "../actions/restaurant";
+import { CHANGE_FIELD_VALUE_RESTAURANT_UPDATE, FETCH_RESTAURANT_DATA, SAVE_RESTAURANT_DATA } from "../actions/restaurant";
 
 export const initialState = {
   name: "",
@@ -38,6 +38,25 @@ const reducer = (state = initialState, action = {}) => {
         pic4: action.pic4,
         pic5: action.pic5,
         pic6: action.pic6,
+      }
+    case FETCH_RESTAURANT_DATA: 
+      return {
+        ...state,
+        name: "",
+        spec: "",
+        address: "",
+        lat: "",
+        long: "",
+        tag1: "",
+        tag2: "",
+        tag3: "",
+        tag4: "",
+        pic1: "",
+        pic2: "",
+        pic3: "",
+        pic4: "",
+        pic5: "",
+        pic6: ""
       }
     case CHANGE_FIELD_VALUE_RESTAURANT_UPDATE:
       return {

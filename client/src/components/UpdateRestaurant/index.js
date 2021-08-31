@@ -8,7 +8,7 @@ const UpdateRestaurants = ({restaurants}) => {
         Dashboard
       </Link>
       {restaurants.map((restaurant, index) => (
-        <div key={index}>
+        <div key={index} className="restaurant_nav-list">
           <Link to={`/update/${restaurant._id}`}>
             {restaurant.name}
           </Link>

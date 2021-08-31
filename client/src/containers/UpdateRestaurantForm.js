@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { changeFieldValueRestaurantUpdate, fetchRestaurantData } from '../actions/restaurant';
+import { changeFieldValueRestaurantUpdate, fetchRestaurantData, updateRestaurantSubmit } from '../actions/restaurant';
 import UpdateRestaurantForm from '../components/UpdateRestaurantForm';
 
 const mapStateToProps = (state) => ({
@@ -26,6 +26,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changeFieldValue: (value, name) =>  {
     dispatch(changeFieldValueRestaurantUpdate(value, name))
+  },
+  handleSubmitUpdate: (id) => {
+    dispatch(updateRestaurantSubmit(id))
   }
 });
 

@@ -68,3 +68,9 @@ export const changeFieldValueRestaurantUpdate = (value, name) => ({
   value,
   name
 });
+
+export const UPDATE_RESTAURANT_SUBMIT = "UPDATE_RESTAURANT_SUBMIT";
+export const updateRestaurantSubmit = (id) => ({
+  type: UPDATE_RESTAURANT_SUBMIT,
+  id
+});

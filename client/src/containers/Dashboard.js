@@ -15,7 +15,9 @@ const mapStateToProps = (state) => ({
   pic1: state.restaurants.pic1,
   pic2: state.restaurants.pic2,
   pic3: state.restaurants.pic3,
-  redirect: state.user.redirect
+  pic4: state.restaurants.pic4,
+  pic5: state.restaurants.pic5,
+  pic6: state.restaurants.pic6
 });
 
 const mapDispatchToProps = (dispatch) => ({

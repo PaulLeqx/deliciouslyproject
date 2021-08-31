@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { CREATE_RESTAURANT_SUBMIT, FETCH_RESTAURANTS_DATA, FETCH_RESTAURANT_DATA, saveRestaurants, saveRestaurantData, fetchRestaurantsData } from '../actions/restaurant';
+import { CREATE_RESTAURANT_SUBMIT, FETCH_RESTAURANTS_DATA, FETCH_RESTAURANT_DATA, saveRestaurants, saveRestaurantData, fetchRestaurantsData, UPDATE_RESTAURANT_SUBMIT } from '../actions/restaurant';
 import { setRedirect } from '../actions/user';
 
 const baseURL = 'http://localhost:5000';
@@ -24,7 +24,7 @@ const restaurant = (store) => (next) => (action) => {
         axios.get(`/api/restaurant/${action.id}`,
         {baseURL})
         .then((response) => {
-          console.log(response);
+          console.log('fetchRestaurant');
           store.dispatch(saveRestaurantData(
             response.data.restaurant.name,
             response.data.restaurant.address,
@@ -45,7 +45,8 @@ const restaurant = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
-        })
+        });
+        break;
       }
     case CREATE_RESTAURANT_SUBMIT:
       {
@@ -71,17 +72,65 @@ const restaurant = (store) => (next) => (action) => {
           pics: [
             state.restaurants.pic1,
             state.restaurants.pic2,
-            state.restaurants.pic3
+            state.restaurants.pic3,
+            state.restaurants.pic4,
+            state.restaurants.pic5,
+            state.restaurants.pic6
           ]
         },
         config)
         .then((response) => {
+          console.log('Createrestaurant');
           store.dispatch(setRedirect(true));
           store.dispatch(fetchRestaurantsData());
         })
         .catch((error) => {
           console.log(error);
+        });
+        break;
+      }
+    case UPDATE_RESTAURANT_SUBMIT:
+      {
+        const state = store.getState();
+        const config = {
+          headers: {
+            "content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          },
+        };
+        axios.put(`http://localhost:5000/api/private/update/${action.id}`,
+        {
+          name: state.restaurant.name,
+          spec: state.restaurant.spec,
+          address: state.restaurant.address,
+          lat: state.restaurant.lat,
+          long: state.restaurant.long,
+          tags: [
+            state.restaurant.tag1,
+            state.restaurant.tag2,
+            state.restaurant.tag3,
+            state.restaurant.tag4
+          ],
+          pics: [
+            state.restaurant.pic1,
+            state.restaurant.pic2,
+            state.restaurant.pic3,
+            state.restaurant.pic4,
+            state.restaurant.pic5,
+            state.restaurant.pic6
+          ]
+        },
+        config)
+        .then((response) => {
+          console.log('Updaterestaurant');
+          console.log(response);
+          store.dispatch(setRedirect(true));
+          store.dispatch(fetchRestaurantsData());
         })
+        .catch((error) => {
+          console.log(error);
+        });
+        break;
       }
     default: {}
   }

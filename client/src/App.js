@@ -66,7 +66,7 @@ const App = ({
               />
             )) : null}
             {logged && !redirect ?
-              <div>
+              <div className="dashboard_wrapper">
                 <Link to="/" onClick={handleLogOut}>Logout</Link>
                 <Dashboard/>
               </div>

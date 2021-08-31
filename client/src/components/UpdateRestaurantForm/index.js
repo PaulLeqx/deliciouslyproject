@@ -24,7 +24,8 @@ const UpdateRestaurantForm = ({
   pic5,
   pic6,
   fetchRestaurantData,
-  changeFieldValue
+  changeFieldValue,
+  handleSubmitUpdate
 }) => {
 
   const pics = [pic1, pic2, pic3, pic4, pic5, pic6];
@@ -47,10 +48,11 @@ const UpdateRestaurantForm = ({
 
   useEffect(() => {
     fetchRestaurantData(id);
-  }, [fetchRestaurantData])
+  }, [fetchRestaurantData]);
 
-  const handleSubmit = (e) => {
+  const handleSubmitForm = (e) => {
     e.preventDefault();
+    handleSubmitUpdate(id);
   } 
 
   return (
@@ -58,7 +60,7 @@ const UpdateRestaurantForm = ({
       <Link to ="/dashboard">
         dashboard
       </Link>
-      <form className="update_restaurant" onSubmit={handleSubmit}>
+      <form className="update_restaurant" onSubmit={handleSubmitForm}>
         <div className="card show update">
           <div className="carousel">
             {pics.map((pic, index) => {
@@ -98,12 +100,14 @@ const UpdateRestaurantForm = ({
               <input 
                 className="card_restaurant-spec__input" 
                 value={spec}
-                name="spec" 
+                name="spec"
+                onChange={(e) => {changeFieldValue(e.target.value, e.target.name)}} 
               />
               <input 
                 className="card_restaurant-add__input" 
                 value={address}
                 name="address"
+                onChange={(e) => {changeFieldValue(e.target.value, e.target.name)}}
               />
             </div>
             <div>
@@ -211,8 +215,8 @@ const UpdateRestaurantForm = ({
             name="long"
             onChange={(e) => {changeFieldValue(e.target.value, e.target.name)}} 
           />
-          <button action="submit">Update</button>
         </div>
+        <button action="submit">Update</button>
       </form>
     </>
   );

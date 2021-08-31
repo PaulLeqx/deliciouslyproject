@@ -1,0 +1,14 @@
+.dashboard_wrapper{
+  position: absolute;
+  top: 32px;
+  left: 35%;
+}
+
+a{
+  background-color: #FF224D;
+  color: white;
+  padding: 8px;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: bold;
+}
