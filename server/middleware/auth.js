@@ -4,6 +4,11 @@ const UserModel = require("../models/User.model");
 exports.protect = async (req, res, next) => {
   let token;
   let body = req.body;
+  let id;
+
+  if(req.params.id) {
+    id = req.params.id;
+  }
 
   if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
     token = req.headers.authorization.split(" ")[1]
@@ -24,6 +29,9 @@ exports.protect = async (req, res, next) => {
 
     req.user = user;
     req.body = body;
+    if (req.params.id) {
+      req.params.id = id
+    };
     
     next();
   } catch (err) {
