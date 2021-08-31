@@ -23,16 +23,8 @@ module.exports.updateRestaurant = async (req, res, next) => {
     address, 
     long, 
     lat, 
-    tag1, 
-    tag2, 
-    tag3, 
-    tag4, 
-    pic1,
-    pic2,
-    pic3,
-    pic4,
-    pic5,
-    pic6,
+    tags,
+    pics
   } = req.body;
 
   try {
@@ -43,8 +35,8 @@ module.exports.updateRestaurant = async (req, res, next) => {
         address,
         long,
         lat,
-        tags:[tag1, tag2, tag3, tag4],
-        pics:[pic1, pic2, pic3, pic4, pic5, pic6]
+        tags,
+        pics
       });
 
     await restaurant.save();
