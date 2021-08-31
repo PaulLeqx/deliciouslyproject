@@ -27,3 +27,15 @@ module.exports.getRestaurants = async (req, res, next) => {
     console.log(err);
   }
 };
+
+module.exports.getRestaurant = async (req, res, next) =>  {
+  try {
+    const restaurant = await RestaurantModel.findById(req.params.id);
+    res.status(201).json({
+      success: true,
+      restaurant
+    })
+  }  catch (error) {
+    res.status(404).json({success: false, error:"no restaurant found"})
+  }
+}

@@ -1,4 +1,4 @@
-import {Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './index.scss';
 
 const Dashboard = ({
@@ -56,6 +56,7 @@ const Dashboard = ({
           <input type="text" value={pic3} name="pic3" onChange={(e) => changeFieldValue(e.target.value, e.target.name)}/>
           <button action="submit">create restaurant</button>
         </form>
+        <Link to="/update">Update Restaurants</Link>
       </div>
     </>
   );

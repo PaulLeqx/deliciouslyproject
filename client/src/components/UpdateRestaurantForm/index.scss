@@ -1,0 +1,38 @@
+.update_restaurant{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.update_links{
+  display: flex;
+  flex-direction: column;
+}
+
+.spec_list-item__desc{
+  width: 90px;
+}
+
+.card_restaurant{
+  &-inputs{
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+  }
+
+  &-name__input {
+    margin-top: 8px;
+  }
+
+  &-add__input {
+    width: 300px;
+    margin-bottom: 8px;
+  }
+}
+
+.card.show.update {
+  position: relative;
+  left: 0;
+  top: 90px;
+  margin-right: 32px;
+}

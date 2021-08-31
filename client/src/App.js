@@ -7,6 +7,8 @@ import './App.css';
 import RegisterForm from './containers/RegisterForm';
 import LoginForm from './containers/LoginForm';
 import Dashboard from "./containers/Dashboard";
+import UpdateRestaurants from "./containers/UpdateRestaurants";
+import UpdateRestaurantForm from "./containers/UpdateRestaurantForm";
 
 
 const App = ({
@@ -24,7 +26,7 @@ const App = ({
     if(localStorage.getItem("authToken")) {
       logIn();
     }
-    console.log("test");
+    console.log(restaurants);
   }, [fetchRestaurantsData]);
 
   useEffect(() => {
@@ -38,15 +40,15 @@ const App = ({
 
   return (
     <div className="App">
-        {restaurants.length > 0 ? restaurants.map((restaurant) => (
-          <DisplayCardButton
-            key={restaurant._id}
-            restaurant={restaurant}
-          />
-        )) : null}
       <Router>
         <Switch>
           <Route exact path="/">
+            {restaurants.length > 0 ? restaurants.map((restaurant) => (
+              <DisplayCardButton
+                key={restaurant._id}
+                restaurant={restaurant}
+              />
+            )) : null}
             {!logged ?
               <div>
                 <RegisterForm />
@@ -57,6 +59,12 @@ const App = ({
             }
           </Route>
           <Route exact path="/dashboard">
+            {restaurants.length > 0 ? restaurants.map((restaurant) => (
+              <DisplayCardButton
+                key={restaurant._id}
+                restaurant={restaurant}
+              />
+            )) : null}
             {logged && !redirect ?
               <div>
                 <Link to="/" onClick={handleLogOut}>Logout</Link>
@@ -64,6 +72,20 @@ const App = ({
               </div>
               :
               <Redirect to="/"/>
+            }
+          </Route>
+          <Route exact path="/update">
+            {logged && !redirect ?
+              <UpdateRestaurants />
+              :
+              <Redirect to="/" />
+            }
+          </Route>
+          <Route exact path="/update/:id">
+          {logged && !redirect ?
+              <UpdateRestaurantForm />
+              :
+              <Redirect to="/" />
             }
           </Route>
         </Switch>
