@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 mongoose
   .connect(
-    "mongodb+srv://" + process.env.DB_USER_PASS + "@deliciously.ndk66.mongodb.net/Deliciously?retryWrites=true&w=majority",
+    "mongodb+srv://"+ process.env.DB_USER_PASS + "@deliciously.ndk66.mongodb.net/Deliciously?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
